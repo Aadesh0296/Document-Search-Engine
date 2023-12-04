@@ -1,0 +1,18 @@
+C:\Users\aades>docker run --name es01 --net elastic -p 9200:9200 -it -m 1GB docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+
+ Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+  dQMAl-uWyi+lAi2+dfDi
+
+
+• Run Kibana and click the configuration link in the terminal when Kibana starts.
+• Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjExLjEiLCJhZHIiOlsiMTcyLjE4LjAuMjo5MjAwIl0sImZnciI6IjNlNzZjY2UzYWIwNTgzZDM3OTI0NGJiODM2NTYyZDYxNDQyMjNlMTM4YmNhNWEzNWU1NmMxMDAxZDdjNjY1NTYiLCJrZXkiOiJBX0ZnR293QnFzNlFSR2xGOVJlSTpQX3ctT3AyX1M1ZWJSTXcwY0FOVWpRIn0=
+
+• Copy the following enrollment token and start new Elasticsearch nodes with `bin/elasticsearch --enrollment-token <token>` (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjExLjEiLCJhZHIiOlsiMTcyLjE4LjAuMjo5MjAwIl0sImZnciI6IjNlNzZjY2UzYWIwNTgzZDM3OTI0NGJiODM2NTYyZDYxNDQyMjNlMTM4YmNhNWEzNWU1NmMxMDAxZDdjNjY1NTYiLCJrZXkiOiJBdkZnR293QnFzNlFSR2xGOVJlSTpFR0ZqVXFQMVJDMkdXcmR5RFdsRnl3In0=
+
+C:\Users\aades>docker pull docker.elastic.co/kibana/kibana:8.11.1
+
+C:\Users\aades>docker run --name kib01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.11.1
+
+Go to http://0.0.0.0:5601/?code=210447 to get started.

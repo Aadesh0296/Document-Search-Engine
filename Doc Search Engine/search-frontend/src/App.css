@@ -1,0 +1,150 @@
+/* App container */
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.header {
+    width: 100%;
+    background-color: #43455a;
+    color: #f2f2f2;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Style for the SearchComponent */
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 300px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.upload-container {
+    width: 60%;
+    height: 10vh;
+    /* 20% of the viewport height */
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+    margin: 20px auto;
+    /* Centers the upload container horizontally */
+    overflow: hidden;
+    /* Prevents default browser actions on drag */
+    position: relative;
+
+}
+
+.upload-container:hover {
+    border-color: #aaaaaa;
+}
+
+.drop-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Ensure the drop area takes up remaining space in the container */
+    height: calc(100% - 50px);
+    /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.file-input {
+    display: none;
+}
+
+/* Styling for the selected file name */
+.selected-file {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.upload-button {
+    /* Button styles */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.upload-button:hover {
+    background-color: #388e3c;
+}
+
+/* Style for the message display */
+.upload-message {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* Style for the table in SearchComponent */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
