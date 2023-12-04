@@ -13,6 +13,7 @@
 **Frontend:** React, HTML, CSS, JavaScript
 **Other Tools:** Docker (optional for containerization)
 **Usage:**
+
 Clone the Repository:
 
 bash
@@ -21,9 +22,8 @@ Copy code
 
 # Backend Setup:
 
-Navigate to the search-backend directory.
-Install dependencies: pip install -r requirements.txt
-Configure Elasticsearch settings in config.py.
+Navigate to the **search-backend** directory.
+Install dependencies: **pip install -r requirements.txt**
 Start the Flask server: python search-backend.py
 
 # Frontend Setup:
