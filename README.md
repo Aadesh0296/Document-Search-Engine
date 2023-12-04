@@ -19,7 +19,7 @@ bash
 Copy code
 **git clone https://github.com/your-username/document-search-engine.git**
 
-**Backend Setup:**
+# Backend Setup:
 
 Navigate to the search-backend directory.
 Install dependencies: pip install -r requirements.txt
