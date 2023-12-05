@@ -5,7 +5,7 @@ const SearchComponent = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [selectedDocumentContent, setSelectedDocumentContent] = useState("");
-  const [typingTimeout, setTypingTimeout] = useState(null); // Initialize with null
+  const [typingTimeout, setTypingTimeout] = useState(null);
 
   const handleSearch = async () => {
     try {
@@ -26,7 +26,7 @@ const SearchComponent = () => {
     setTypingTimeout(
       setTimeout(() => {
         handleSearch();
-      }, 10) // Adjust this delay as needed (e.g., 300ms)
+      }, 300) // Adjust debounce delay as needed (e.g., 300ms)
     );
   };
 
@@ -36,7 +36,6 @@ const SearchComponent = () => {
         `http://127.0.0.1:5000/get_document_by_name?name=${documentName}`
       );
 
-      // Highlight the searched word in the document content
       const content = response.data.content.replace(
         new RegExp(query, "gi"),
         (match) => `<span style="background-color: yellow">${match}</span>`
@@ -49,13 +48,17 @@ const SearchComponent = () => {
   };
 
   useEffect(() => {
-    debouncedSearch();
-    // Clean up the timeout on component unmount or when query changes
+    if (query.trim() !== '') { // Check if query is not empty
+      debouncedSearch();
+    } else {
+      setResults([]); // Clear results if query is empty
+    }
+
     return () => {
       clearTimeout(typingTimeout);
-      setSelectedDocumentContent(""); // Reset selected document content
+      setSelectedDocumentContent("");
     };
-  }, [query]); // Trigger the effect when the query changes
+  }, [query]);
 
   return (
     <div>
@@ -65,7 +68,7 @@ const SearchComponent = () => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search..."
       />
-      {results && results.length > 0 ? (
+      {results.length > 0 ? (
         <table>
           <thead>
             <tr>
@@ -99,7 +102,7 @@ const SearchComponent = () => {
           </tbody>
         </table>
       ) : (
-        <p>No results found</p>
+        query.trim() !== '' && <p>No results found</p>
       )}
 
       {selectedDocumentContent && (
